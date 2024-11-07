@@ -106,7 +106,7 @@ $string['batch'] = 'Image by NFT';
 $string['image'] = 'Base image certificate';
 $string['view_terms'] = 'View Terms and Conditions';
 $string['terms_and_conditions'] = 'Terms and Conditions';
-$string['terms_content'] = 'This is a placeholder for the SEAL module terms and conditions. Please replace this content with your actual terms and conditions.
+$string['terms_content'] = 'This is a placeholder for the SEAL module terms and conditions.
 
 1. Usage of the SEAL module is subject to these terms.
 2. Users must agree to these terms before using the module.

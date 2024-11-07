@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const profile = data[1];
         
         try {
-            const response = await fetch(`${dirurl}/js/web3.php`, { 
+            const response = await fetch(`${dirurl}js/web3.php`, { 
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ authori, profile }),

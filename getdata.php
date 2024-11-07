@@ -77,7 +77,6 @@ $response = [
 ];
 
 // Enviar la respuesta en formato JSON.
-header('Content-Type: application/json');
 echo json_encode($response);
 
 exit;

@@ -41,8 +41,7 @@ class mod_seal_mod_form extends moodleform_mod {
     public function definition() {
         $logourl = new moodle_url('/mod/certifieth/pix/seal-logo.svg');
         global $CFG, $DB, $COURSE;
-        $profileId = get_config('mod_seal', 'profid');
-        if($profileId=='')
+        if(get_config('mod_seal', 'program')=='')
             {
                 $mform = $this->_form;
                 $mform->addElement('header', 'general', get_string('noidprofile', 'mod_seal'));
@@ -91,6 +90,14 @@ class mod_seal_mod_form extends moodleform_mod {
                 // Adding the "general" fieldset, where all the common settings are shown.
                 $mform->addElement('header', 'general', get_string('certificate', 'mod_seal'));
                 
+                $options = array(
+                    '0xA0' => 'Uno',
+                    '0xA1' => 'Dos',
+                    '0xA2' => 'tres'
+                );
+                $select = $mform->addElement('select', 'colors', get_string('coursename', 'mod_seal'), $options);
+                // This will select the colour blue.
+                $select->setSelected('uno');
                 // Adding the standard "name" field.
                 $mform->addElement('text', 'name', get_string('sealname', 'mod_seal'), array('size' => '64'));
                 
@@ -126,11 +133,6 @@ class mod_seal_mod_form extends moodleform_mod {
                 $mform->setType('partners', PARAM_TEXT);
                 $mform->addRule('partners', null, 'required', null, 'client');
                 
-                
-                // Adding the rest of mod_seal settings, spreading all them into this fieldset
-                // ... or adding more fieldsets ('header' elements) if needed for better logic.
-                //$mform->addElement('static', 'label1', 'sealsettings', get_string('sealsettings', 'mod_seal'));
-                //$mform->addElement('header', 'sealfieldset', get_string('sealfieldset', 'mod_seal'));
                 
                 // Add standard elements.
                 $this->standard_coursemodule_elements();
